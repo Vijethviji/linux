@@ -1,0 +1,688 @@
+What is linux?
+ans:- Linux is a open-source opeerating system based on Unix. Its known for security and flexibility.
+	* Created by Linus Torvalds in 1991.
+	* The name "Linux" comes from Linus+Unix.
+	* Linux is a open-source kernel.
+	* A kernel is the core part of an operating system resources and communication between hardware and software.
+	
+UNIX:- Unix is a powerful, multiuser, multitasking operating system originally developed in the 1970 at AT&T Bell Labs, which serves as the foundation for many modren operating systems.
+	* Linux is inspiredby unix and designed to be Unix-like.Unix is licensed.
+	* It follows many of the same principle and standards , making it compatible with Unix software and commands.
+
+Linux Distribution(Distros):- An operating system made from a software collection, which includes the Linux kernel and often a package management system. Ex:ubuntu,Centos.
+Key features of Linux:
+	* Open Source: Source code is freely available and can be modified.
+	* Multiuser: Multiple users can access system resources simultaneously.
+	* Multitasking: Can run multiple tasks simultaneously.
+	* Security: Strong security features and regular updates.
+	* Portability: Can run on various hardware platform.
+	
+Putty:- Putty is a free and open source terminal.It's widely used for remote access to servers iva SSH.
+
+
+Steps to install putty:
+step1:- Go to chrome and search for putty download.
+step2:- go to putty.org.
+step3:- Click download putty.
+step4:- Download MSI 64-bit x86.
+step5:- Install putty by double clicking.
+
+Accessing Centos using Putty:
+Step1:- Go to centos and open terminal and add command ifconfig.
+Step2:- Copy ip using ipconfig ip is in inet.
+step3:- Paste that ip in host name after opening putty app.
+step4:- in case timeout error shows go to devices in centos in network setting select bridge adapter.
+step5:- After pasting accept and enter credentials.
+
+You can run ubuntu on teminal and git just username@ip_address and then pass.
+
+To access a server, service should be enabled.
+Steps to enable server service:
+Step1:- On ubuntu 'sudo apt install openssh-server and yes.
+step2:- Now to start systemctl start ssh. Then enter password and check status.
+step3:- Now ubuntu running in putty.  
+
+Download Mobaxterm from chrome to run multi tabs
+Step1:- download free version and installer addition.
+
+WinScp:- A free SFTP, SCP and FTP client for Windows that allows secure file transfer between your local machine and a remote server.
+Ex:File transfer between windows and linux.
+
+Steps to install WinScp:
+Step1:- Go to chrome and search for winscp download and click on winscp.net
+step2:- Click download and double click and install for all users.
+
+How to transfer files between to linux os?
+Ans:- SCP(Secure Copy Protocol): It is a command-line tool used for securely transferring files between a local and a remote host, using SSH for encryption and authentication.
+Syntax: scp/local/file
+		username@remote_host:/path/
+		
+Ex: scp file1 vijeth@192.168.1.80:/temp/
+
+How to copy file from remote server to local server?
+Ans:- Using scp we can copy.
+Ex: scp -v vijeth@192.168.1.81:/temp/file1 .(dot) {-v is verbose it optionl and used for debuging}.
+
+:wq for save and exit
+:q! for quit without save
+Accessing a csv file:- Open csv file 1.Shift+G :- Last line
+								     2.gg :-First line
+									 3. Search a word :- press Esc 2 or 3 times and search for the /word. press n.?word for reverse.
+									 4. point the cursor and press shift+*.shift+# reverse.
+									 5. Replacing word in a file :%s/word1/word2/g 
+									 6. Undo press u. Ctrl+r re do.
+									 7. Insert a line after any line press o. Shift+o for upper line.
+									 8. Shift+I edit starts at begining of the line, Shift+A for end of the line.
+									 9. x(small) deletes the word the cursor is pointing, r for replace a single word.
+								    10. dd used to delete the entire line.
+									11.:e! To undo all changes.
+									12. 10dd deletes 10 lines(cut which is copied to clip boared).
+									13. p used for pasteting.Shift+p pastes above the cursor.
+									14. Shift+v to select entire line use arrow to select multiple lines. v for word by word.y to copy selected text.
+									15. :set nu gives each line a number. :setnonu for removing number.
+									16. :100 jumps to 100th line.
+									
+Accessing a .sh file:- open sh file 1. :syntax off/on which removes colour or adds colour.
+									2. vim -o file1 file2 used to open 2 file simultaneously.
+									3. Ctrl+w(twice) to change the file editing.
+									4. to compare two vim -d file1 file2.
+									
+
+open powershell 
+step1 :- type wsl --install
+
+Kali Linux :- Kali Linux is a n exciting and powerful Linux distribution designed specifically for cybersecurity enthusiasts.
+It is developed, maintained and funded by offensive security.
+
+how to install kali linux 
+step1 :- go to microsoft store.
+step2 :- download kali linux.
+step3 :-open cmd type wsl --install.
+step4 :- restart pc.
+
+ 
+
+
+
+day1 linux
+
+open shell 
+	1. date:-shows date
+	2. $ :- shows begining of line
+	3. df :- amount of free space.
+	4. free: free memory.
+	5. exit :- exit the panel.
+	
+keeponcoding youtube channel linux commandlines for beginners.
+
+To start the linux:
+	1)Open cmd.
+	2)Type wsl --list --verbose or wsl -l -v.
+	3)Type wsl or wsl -d ubuntu.	
+	
+To reinstall:
+	1)Type wsl --unregister ubuntu.
+	2)Type wsl --install.	
+
+linux file system(It is tree like structure)
+1. /(root directory)
+	a. home
+		1)ana
+		2)zeam
+		3) ...
+	b. bin
+		1) ...
+	c. var
+		1) Lib
+		2) www
+		3) ...
+		
+*For commands history press up arrow.
+*Blue command is current working directory.
+*Use tab for auto complete.
+
+File system.
+	1. Types of file system.
+		a. ext3(extended 3).
+		b. ext4(extended 4). performs well across various file but less efficient for large files. 
+		c. XFS [ubuntu,debian,fedora,centOS,RedHat]. optimized for large file and highly efficient.
+		d. BtrFS(B-tree FS) [OpenSUSE and SUSE Linux enterprisis server]
+		e. FAT File Allocation Table.
+		
+	2. how to check the file system?
+	ans: commands
+			1. lsblk -f
+			2. df -Th
+			3. cat/etc/fstab
+	3. inode :- It is a data structure which stores meta data about the about the file or directory.command [ls -l] and [ls -li].
+	
+	4. /(root) Directory.
+		The linux file system starts at root directory, denoted by / and directories branched out.
+			a. /bin :- Contains essential user binaries (executables), such as common commands like ls,cp,etc..
+			b. /etc :- Holds system configuaration files. Ex User, network, system apps.
+			c. /home :-contains the personal directories of all users.
+			d. /root :- The home directory for the root user(administrator).
+			e. /var :- Where variable data such as logs and databases are stored.
+						Sub:
+							1. /cache/.
+							2. /log/.
+							3. /spool/.
+							4. /tmp/.
+			f. /tmp :-Temproray files created by system an users.
+			g. /boot :- holds files needed for system boot-up, including the Linux kernel, an initial RAM disk image, bootloader configuaration(like GRUB).
+			h. /dev :- this directory contains device files which represent and provide access to hardware devices such as hard drives, sound devices etc.
+			i. /lib,/lib64 :- these directories contain essential shared libraries and kernel modules that are needed to boot the system and run the commands 
+							   in the root filesystem. The /lib64 directory exists on system that support 64-bit application.
+			j. /media :- This is the mount point for removable media such as USB drives, CD-ROMs, etc. When these devices are mounted, typically,directories 
+						  corresponding to their mount points are created within /media.
+			k. /mnt :- Similar to /media, this is a traditional mount point where system administrators can mount temporary file systems while using or configuring
+						them.
+			l. /opt :- Intended for the installation of addd-on application software packages.
+			m. /proc :-A virtual and dynamic directory as it only exists in memory. It does not use disk space. It contains information about system resources, 
+						harware and running processess. It's a psuedo-filesystem that provides an interface to kernel data structures.
+		    n. /run :- A temporary filesystem that stores trsnsient state files, like process IDs or lock files, since it is cleared and recreated at every boot.
+			o. /sbin :- Contains binary(executable) files that are mostly neede by the system adminstrator. These include system management commands like fdisks,
+						shutdown, ip,etc.
+			p. /srv :- Contains data which servers hosted on the system may need, such as web pages served by a web server.
+			q. /sys :- Similar to /proc, this is another virtaul filesystem that provides  an interface to the kernel. It contains information and settings about 
+						the system's devices, drives and some kernel features.
+			r. /usr :- Considered the secondary hierarchy because it contains all user applications and a variety of other things for day-to-day operations, 
+						including libraries, documentations and much more. Subdirectories include /usr/bin, /usr/sbin, /usr/local and /usr/share, amoung others.
+						Sub:
+							1. /bin/.
+							2. /include/.
+							3. /lib/.
+							4. /sbin/.
+							
+File 7 types in linux:
+	1. (-)Regular file
+	2. (d)Directory
+	3. (l)Link
+	4. (c)Device File
+	5. (s)Socket :- special file to enable communication between two processes.
+					Find under/run/
+					Example: /run/chrony/chronyd.sock
+					
+	6. (p)FIFO o Named pipe :- Sends data from one process to another so that the receiving 
+								process reads the data first-in-first-out manner.
+								Can be created using mkfifo command.
+	7. (d) i] Block device :- A file that refers to a device.
+							Find under /dev/
+							Example: /dev/sda1.
+		   ii] Character device file :- We can create using mknod command.
+										These files are present in /dev folder.
+										File that reads/writes data in character by character.
+										Example: /dev/input/mouse2.wslwsl
+										
+File permissions:
+	Each permission set can contain four basic representation.
+		1. r means that file is readable.
+		2. w means that the file is writable.
+		3. x means that the file is executable(you can run it as a program)
+		4. - means "nothing" (more specifically, the permission for that 
+			slot in the set has been granted).
+		-rw-r--r--
+			-       Type file or d type directory
+			rw-     User permissions
+			r--     Group permissions
+			r--     Other permissions
+	how to modify permissions of a file?
+		chmod a+rwx file.txt
+		
+		u means user 
+		g means group
+		o means other 
+		a means all
+
+What is ACL(Access Control List?
+It allows you to give more specific set of permissions to a file or directory without changing the base ownership and permission.
+	commands: setfacl(set file acl) & getfacl.
+	
+System monitoring:
+	1. df command shows information about the file system.
+		df -h
+		-h Human Readable
+		-BM or -BG scale sizes by size.
+	
+	2. du command :- summarize disk usage of set of FILEs, recursively for directories.
+		du -h
+		du -h FILE/PATH
+		du -hc FILE/PATH for total volume.
+		
+		if you want to see even size of file then use a.
+		du -ahc File/PATH for total volume.
+		-BM or -BG scale size by size.
+		
+openssl :- toolkit for the transport layer Security(TLS) and Secure Sockets Layer(SSL) protocols.
+rsync :- Fast and versatile file copying tool.
+		
+Pipe
+
+What is a pipe?
+:- Pipes are used to redirect a streamn from ane program to another program.
+   The output of one command redirect it to the input of another.
+   
+How pipe work?
+:-                                ______________            _______
+  i/p--------->|----|------->o/p O___pipe_______O----i/p--->|     |---->o/p
+			   |cmd1|                                       | cmd2|
+			   ------                                       -------
+			   
+Pipe syntax:
+We use pipe '|' symbol to separate two commands.
+
+output of first command passed/redirected to second command.
+Syntax: command1 | command2
+
+Ex: ps -ef gives all active process. so for particular process
+	ps -ef | grep httpd gives a particular process.
+
+Case1: Find no. directory present in that directory.
+:-  ls -1(one) give every file in single line. 
+	ls -1 | wc -l gives numberb bof files present in that directory( wc -l= word count lines).
+
+Case2: There are two files. Combine both files content using cat and sort it.
+:-	cat file1 file2 | sort
+
+Case3: Find unique records from a file.
+:-  cat file| sort | uniq   (to apply uniq we sort it)
+		
+Case4: How to see only 30-37th line in a file of 100 lines?
+:-	cat file | head -38 | tail -7
+
+'less' and 'more' commands:(netstat | more ) (netstat | less)
+netstat :- Network connection in the server.
+
+TEE :- ls | tee file_name :- When we need write and to perform something.
+Ex:- ls | tee file_name | wc -l :- To check the number of lines worked.
+
+xargs :- It convert the standard input into command line argument.
+
+grep command "Global Regular Expression Print"
+
+	* Grep command search for a particular string/keyword from a file and print lines matching a pattern.
+	* It check line by line and print lines matching given pattern.
+	* We can use grep anywhere like with files, searching for file, directories etc.
+	
+grep command syntax:
+	grep [OPTION].. Pattern [File]..
+	
+use cases:
+	To search kara name in file users.csv
+	:- grep kara users.csv
+	In this case it is case sensitive.
+	
+case1:
+	To ignore the upper and lower case while searching:
+	:- grep -i "keyword" file
+	-i means ignore.
+	
+case2:
+	To search everything except given pattern/keyword:
+	:- grep -v "keyword" file
+	-v invert match.
+	
+case3: 
+	To print how manyh times (count)) given keyword present in file:
+	:- grep -c "keyword" file
+	-c count.
+
+case4: 
+	To search for exact match of given keyword in a file.
+	:- grep -w "keyword" file
+	Gives only specific word line.
+	
+case5:
+	To print the line number of matches of given keyword in a file:
+	:- grep -n "keyword" file
+	
+case6:
+	To search a given keyword in multiple files:
+	:- grep "keyword" file1 file2 ...
+	grep -h "keyword" file1 file2 ..  (to suppress or hide the file name).
+	
+case7:
+	To search multiple keywords in a file:
+	:- grep -e "keyword1" -e "keyword2" file
+	:- egrep "keyword1|keyword2|..." file (prefer this)..
+	
+case8:
+	To search multiple keywords in multiple files.
+	:- grep -e "keyword1" -e "keyword2" file1 file2
+	
+case9:
+	To print file names which matches the given keyword:
+	grep -l "keyword" file1 file2
+	
+case10:
+	To get the keyword/pattern from a file and match with a another file:
+	:- grep -f keyword.txt file
+	
+case11:
+	To print the matching ;ine which start with given keyword:
+	:- grep "^keyword" file (^ = start with)
+	
+case12:
+	To pring the matching line which end with given keyword:
+	grep "keyword$" file
+	
+case13:
+	Suppose we have 100 files in a directory and we need to search a keyword in all the files:
+	:- grep -R "keyword" directory/
+	OR
+	:- grep "keyword" directory/*
+	
+
+1.egrep "key1|key2" file
+2. pgrep process_name   (p is process id)
+3. fgrep key_name file_name  (grep shows all in middle if we have special character(.) it shows replaced characters also wildcard pattern).
+4. zgrep key zipfile  (shows results for data inside the zip file).
+5. pdfgrep key pdf (shows that key is present or not).
+ 
+	
+Find command: Find command search for a file in a directory hierarchy.
+
+syntax:
+find [options] [path] [expression]
+	
+Basic ex:
+find /path/ -name <file_name>
+
+1. 	How to search a file  based on their size?
+	: find /path/ -size 50M
+		M for MB
+		K for KB
+		G for GB
+		C for bytes
+	
+2. 	How to only file or only directory in a given path?
+	:- find /path/ -type f
+		f for file
+		d for directory
+		l for symbolic link
+		b for block device 
+		s for socket
+		
+3.	How to search a file based om it's name?
+	:- find /path/ -name <file_name>    (-iname for removing case sensitivity)
+	
+4.	How to search files for a given user only?
+	:-find /path/ -user root
+	
+5.	How to searcvh a file based on the inode no.?
+	:- find /path/ -inum <inode_no._of_file>
+	
+6. 	How to search a file based on the number of links?
+	:- find /path/ -links <no._of_links>
+
+7. 	How to search a file based on their permission?
+	:- find /path/ -perm /u=r
+	   find /path/ -perm 777
+	   
+8. 	How to search all the files which start with leeter a?
+	:- find /path/ -iname a*
+	
+9. 	How to search all files and directories that are modified or created after the last modification done?
+	:- find /path/ -newer last.txt
+	
+10. How to search all the empty files in sa given directory?
+	:- find /path/ -empty
+	
+11.	How to search all the empty files in a given directory and at the same time delete them?
+	:- find /path/ -empty -exec rm{} \;
+	
+12.	How to search all the files whose size are between 1-50 MB?
+	:- find /path/ -size +1MB -size -50MB     ----># +1MB means greater than 1MB -50 means less 50MB 
+	
+13. How to search 15 days old files?
+	:- find /path/ -mtime 15
+	
+To run multiple commands :
+		command1; command2; command3
+
+Shortcuts:
+1. Ctrl+a: To move cursor to the start.
+2. Ctrl+e: To move the cursor to end.
+3. Crtl+u: To clear the terminal.
+4. Ctrl+y: To redo commands in the terminal that previously typed.
+5. Ctrl+r: Reverse search for the commands we ever used(rfor other).
+6. Ctrl+l: Clear screen.
+7. Ctrl+d: To delete one character at a time from starting(opp of backspace).
+8. cd ~: Switch the path to home directory.
+
+Wildcards:
+	What is wildcards?
+	:- Wildcards are special characters that represent one or more characters in filenames or commands, allowing users to select multiple files at once.
+	
+	1. How to find all the XML files in a dictionary?
+	:- ls *.xml
+	
+	2. Create 20 files like files1 file2 .. file20:
+	:- touch file{1..20}
+		rm file{1..20} To delete.
+		
+	3. Find all the files with _123 (where can any  character)
+	:- ls ?_123 (?single character and star '*' is multiple character).
+
+	4. Find all the files whose name is exactly 4 characters example a123,test..
+	:- ls ????
+	
+	5. Find files with name start with a,b,or c?
+	:-  [abc]*
+	
+	6. Find files whose name included the numeric value:
+	:- ls *[0-9]*
+	   ls *[a-]*   OR ls *[A-Z]*
+	   
+	7. Find all files that start with "test" and have exactly 6 characters in their name(example: test01,test99,..).
+	:- ls test??
+	
+	8. Find all files that at least one underscore in their name?
+	:- ls *_*
+	
+	9. List all files that do not contain the letter "e" in their name:
+	:- ls | grep -v 'e'  (-v)
+	
+   10. Find all files that start with aa capital letter [A-Z]:
+	   ls [A-Z]*
+	   
+   11. How would you list all files that start with the letter "a" and end with .sh in the current directory?
+    :- ls a*.sh
+
+   12. What command would you use to move all files with a .jpg extension to the images directory?
+	:- mv *.jpg images
+	
+   13. How can you delete all files that have "backup" somewhere in their filename?
+    :-  ls *backup* 
+		rm *backup*
+   14. Write a grep command to find liones that contain a date in the format YYYY-MM-DD in a file.
+    :- grep -E '\b[0-9]{4}-[0-9]{2}-[0-9]{2}\b'dates.txt
+		
+	Caret('^'): Matches the start of a line.
+	Ex: '^Hello' matches any line starting with "Hello".
+	
+	Doller Sign('$'):Matches the end of a line.
+	Ex: 'world$' matches any line ending with "world".
+	
+
+
+	
+
+	
+
+	
+
+
+commands
+	1. pwd :- print working directory(current working directory).
+	2. ls :- shows content.
+	3. cd :- change directory('cd -' fro previous directory).
+	4. touch :- create a file.
+	5. cd ../.. :- Two folder back.
+	6. clear(Crtl+l) :- clear screen.
+	7. ls ~ /directory name :- Gives ls of that specific directory.
+	8. ls -l :- littile bit more info about the directory.
+	9. ls -l -a or ls -la or ls -lh(humsn readable):- shows additional details
+	10. file file_name :- Shows file data.
+	11. less :- used to read and search for a word in a file.
+	12. mkdir folder_name :- used to create the directory or folder.For multiple 
+		directory creation we go for mkdir folder_name1 folder_name2   folder_name_n.
+	13. cp filename /dest/path :- copy file to destination.
+	14. echo>file_name :- Used to add info to file.
+	15. cat file_name :- used view file data or content.
+	16. ls | grep cd(any command) :- to search word in pattern(Global Regular Expression Print).
+	17. df -h :- shows device info.
+	18. cat proc/cpuinfo :- Shows cpu info.
+	19. ls -ltr :- List files in long format, sorted by time, with oldest files first.
+	20. find / -type s :- shows list of files related to s(can be changed accordingly).
+	21. chmod a(+)(-) rwx(any combo) :- change permission of a file.
+	22. chmod a-w,u+r,.. file_name also permitted.
+	23. chmod -R u=rwx directory_name/ :- It changes the permission of files inside the directory recurrsively (-R will change the permission of the directory and file inside it).
+	24. chmod 000 to 777 file_name :- octal number system used to change the permission of the file.
+	25. chown user filename :- Used to change the owner name.
+	26. chgrp group filname :- Used to change the group name.
+	27. setfacl -m u:user:rwx <target_file> :-For adding permission for user.
+	28. setfacl -m g:group:rwx <target_file> :- For adding permission for group.
+	29. setfacl -x u:user <target_file> :- To remove a specific entry.
+	30. setfacl -b <target_file> :- To remove all entries.
+	31. setfacl -Rm "entry" <target_file/folder> :-Used to apply permission for all files in that folder.(entry:-m u:user:rwx/-m g:group:rwx/-x u:user:rwx/-b).
+	32. df -h :- show information about the file system.
+	33. vim file_name :- Used to edit file content.(press esc and :qw to save and exit.:q! to exit without saving.
+	34. whoami :- current logged-in user.
+	35. date :- shows date(date +%D,date +%H+%)
+	36. more :- Used to view the content of the file page by page.
+	37. rm :- Used to delete file.
+	38. vim file_name :- Used to create file and open editor.
+	39. nano file_name :- Used to create file and open editor it is a modern command(for Crtl+S).
+	40. rmdir folder_name or rm -rf folder_name :- Used to delete the folder.
+	41. cp file1 file2 :- Ccopies content of file1 to file2.
+	42. mv file /dest/path(newfile_name create file paste the data) :- cut-paste a file from one folder to another.
+	43. head -5(n) filename :- display top 5 lines from the file.
+	44. tail -5(n) filename :- display bottom 5 lines.
+	45. sort file_name :- sorts the content of the file.
+	46. sort -r file_name :- sorts in reverse order.;
+	47. sort file_name | uniq :- Display unique content from the file.
+	48. split -l 3(no. of lines) file_name :- splits a file into multiple files depending upon the no. of lines.
+	49. grep "word" file_name :- Used to search the matching word from the given file.
+	50. egrep "word1|word2" file_name :- Used to search multiple word in a file.
+	51. ls file_name* :- Enter first letter of the file shows related file.
+	52. ls *file_name :- Enter the ending letters of the file it showes the related file.(useful for extension file search)
+	53. touch file_name{range} :- create file according to the range.(range={1..10} create file with the name file_name1,..,file_name10).
+	54. shuf file :- Used to shuffle the content of the file.
+	55. wc -l file_name :- count the no. of lines in a file.
+	56. cmp fileA fileB :compare the file so that they are identical or not.
+	57. diff -u fileA fileB : Compare two file and display the difference between two files.
+	58. find /path/ -name file_name : USed to find a file.
+	59. locate file_name : Used to find the file it should be used after using updatedb.\
+	#utility commands 
+	60. history :- Used to track the command that i have used.
+	61. help :- Used to get syntax info(ls --help | more).
+	62. man :- Used get more info about the command.
+	63. which :- Check which executable is using for a command.
+	64. bc :- Opens a calculator in the teminal.(Press crtl+c to come out).
+	65. cal mon/year(opt) :- Display the calender accordingly.
+	66. uptime : Used to check the how long the server has been running.
+	67. script :- After enterinf this command it starts recording the commands entered in the terminal and stored in a file(Crtl+d to end record).
+    68. alias l="ls -ltr" :- used to alias a command.
+	#zip and Unzip of files and folders
+	69. gzip -k file_name  :- To compress a file -k refer to keep file original(compressed file extension is .gz).
+	70. gzip -d file_name OR gunzip file_name :- To decompress the file -d refer to decompress.
+	71. tar -czf myfiles.tar.gz myfiles/ :- To compress a folder(tar=tape archive,-czf=compress zip file, myfiles.tar.gz=compressed file name but extension should be .tar.gz myfiles/=folder that shouid be compressed).
+	72. tar -xzf myfiles.tar.gz :- Dcompress the folder(-xzf=extract zip file).
+	73. zip myfiles.zip file1 file2 :- To compress multiple files into one zipped file(myfiles refer to zipping folder).
+	74. unzip -l myfiles.zip :- Used to list of files zipped file.
+	75. unzip myfiles.zip :- Used to unzip file.
+	#Downloading files from internet
+	76. wget url_of_the_file OR wget -O opt_file.txt url_of_the_file :- Download a file from internet(-O=capital o, opt_file.txt= name of the file should bw saved as).
+	77. curl http://numbersapi.com/random :-  To call an API on linux(http://numbersapi.com/random =api link can be changed accordingly).
+	78. apt or yum/dnf :- to install an application on linux(for ubuntu apt is used).
+	79. rpm -qa | grep app OR dnf list installed | grep name_of_app :- Used to check the app is alreadyb installed.
+	80. apt search package_name OR dnf/yum list available | grep package_name :- List the available packages to install on linux.
+	81. systemctl status service_name :- Shows the status of the service name.
+	82. systemctl start/stop service_name :- Used to start or stop a service.
+	83. systemctl list-units --type=service --all :- List all services on the linux.
+	84. printenv :- List all existing environment variables on linux.
+	85. export JAVA_HOME="/usr/lib/jvm/java_v" OR export PATH=$JAVA_HOME/bin:$PATH :- ADD a new environment variable on linux.# ls /usr/lib/jvm 
+	86. source ~/.bash_profile :- ADD a new Environment variable permanently on linux.
+	87. awk -F ,'{print $2}' file.csv :- print a specific column from a csv file(-F , = All field separated by ,).
+	88. cut -c1-2 file.txt :- Used to display characters inthe the range(-c1-2 means from 1 to 2).
+	89. sed -n '5p' file.txt :- used to display a specific line from a file(5p means 5th line).
+	90. sed -n 's/from/to/g' file.txt :- Used to replace word within a file(from=existing name,to=new name,s=substitute,g=globally).
+	91. tr [:lower:] [:upper:] file.txt :- Converts content of the file from lower case to upper case.
+    92. tr [:punct:] z file.txt :- 
+	93. tr [:digit:] z file.txt :-
+	94. truncate -s 100M file_name :- Extend or shrink size of a file(-s=size,100M=required size).
+	95. echo "ABCDE" | fold -w1 :- Used to display following line in vertical line(-w1=width of 1).
+	96. su user_name :- Change user or login as different user in linux.
+	97. sudo yum install httpd :- If you are not root user, Used to execute admin commands like installing new apps.
+	#Access Remote Server
+	98. ssh user@hostname :- Used to access a remote linux server.
+	99. scp file_name user@hostname:/path :- used transfer file securely.
+    #Memory Info
+   100. free -th :- Used to check the free RAM space(-th=total,human readble).
+   101. top :- Used to check % memory and cpu utilization.
+   102. du -h :- Disk utilization.
+   103. df -h :- Check file system is available and disk space allocated.
+   #System info
+   104. hostname :- Used to check hostname of your linux server.
+   105. lscpu :- Used to check cpu/core/thread info of your linux server.
+   106. arch :- Used to check the architecture of the linux server.
+   107. lsblk :- To see list of storage devices, disk partition on your linux server.
+   108. uname -a : To see OS name of linux server(cat /etc/os-release =for more info).
+   #Process Management
+   109. ps -ef | grep process_name :- Used to check if a process is running or not.
+   110. pgrep process_name :- To get PID of a process.
+   111. kill -9 PID :- Used to a process using PID(-9=Forcefully).
+   112. pkill package_name :- To kill a process using its name.
+   113. jobs :- To see all the active jobs.
+   114. sleep 5s :- Terminal doesn't respond for 5 second(Crtl+z=stop).
+   115. bg :- To resume a job in background.
+   116. fg :- To resume a job in foreground.
+   117. nohup ./script_name >/dev/null & :- To run a script in background.
+   118. ping website_name(www.google.com) :- Tob check if a server or website is accesible or not(transmitted and recived should be 100%).
+   119. telnet IP Port :- To check if a IP:PORT is accessible and open or not?
+   120. netstat -putan | grep 80 :- To check if port is open or not on our server.
+   121. traceroute website_name:- To check all hubs in network path to a website.
+   #User creation 
+   122. useradd new_username :- Create a  new user on our linux server.
+   123. passwd :- To change password for the user.
+   124. groupadd group_name :- To create a new group on our linux server.
+   125. id user :- To check user id or group id of a user.
+   126. userdel user_name :- Used to delete user.
+   127. groupdel group_name :- Used to delete a group.
+   128. usermod -G group_name user_name :- To add a user to group.
+   129. at time :- Used to execute a command at particular time.
+   # Network commands
+   130. curl,wget :- USed to download the files from the internet.
+   131. netstat :- To get the estamblish connection details.
+   132. ftp :- (File transfer Protocol).
+   133. ping :- To check there is connectivity with that particular server.
+   134. telnet :- It tell information about ports also.
+   
+   135. id :- To check users.
+   #Application management Commands
+   136. which :- It shows more info of the command. 
+   137. yum :- Used to install application.
+   138. systemctl :- To manage the services like stop, start ,restart and loss.
+   #Environment Variable Commands
+   139. env :- Displays environment variables and can run commands with modified environment settings.
+   140. printenv :- Prints the values of environment variables.
+   141. export :- Sets environment variables and makes them available to child processes/shells.
+   142. source :- Executes commands from a file in the current shell without opening a new shell.
+
+   143. free :- To check the ram utilization.
+   144. nohup :- nohup python app.py & (& = runs in the background).Runs a command that continues executing even after the terminal is closed or the user logs out. 
+   145. crontab :- Used to schedule and manage automatic recurring tasks (cron jobs) in Linux.
+   146. awk	:- A text-processing command used for pattern scanning, data extraction, and reporting.
+   147. cut :-	Extracts specific columns or sections from a file or command output.
+   148. sed	:- A stream editor used to search, replace, insert, or delete text in files or command output.
+   149. ln :- Creates links between files or directories in Linux. It can create hard links or symbolic (soft) links.
+   150. nice :- Starts a process with a specified priority level in Linux. It controls how much CPU priority a process gets(nice -n 10 python app.py). 
+   151. qu'ota :- Displays the disk usage limit and storage usage assigned to a user or group in Linux(quota -u vijeth).
+   152. tee :- Reads input from standard input and writes it to both standard output (screen) and one or more files at the same time.
+   153. umask :- Sets or displays the default file permission mask that determines what permissions are removed when new files or directories are created in Linux.
+   154. umount :- Unmounts a mounted filesystem, making it inaccessible from its mount point until it is mounted again(umount /dev/sdb1).
+   155. xxd :- Creats a hex dump of a given file or standard input.
+   156. > filename :- Used to delete the content of the file without deleting it.
+   157. tail -f /var/log/syslog :- To get realtime system logs.
+   158. 
