@@ -504,14 +504,163 @@ Wildcards:
 	Doller Sign('$'):Matches the end of a line.
 	Ex: 'world$' matches any line ending with "world".
 	
+Linux Redirects:
 
-
+	1. Merging multiple files into a single file.
+	:- cat file1 file2 > file3
 	
+	2. Split a big file into a small filen with relevant data.
+	:- grep data file_name
+		grep data file_name > data_file_name (data_file_name file is created and relevant data stored in that file)
 
+	Types of Redirection
+		* Standard Input(stdin)
+		* Standard output(stdout)
+		* Standard Error(stderr)
+		
+	File Descriptors:
+	In linux , a file descriptor is an integer that represents an open file. There are three standard file descriptors.
+		1. Standard Input(stdin): 		File descriptor 0
+		2. Standard Output(stdout):   	File descriptor 1
+		3. Standard Error(stderr): 		File descriptor 2
+		
+	These descriptor help the system understand where to send or recieve data.
 	
-
+	Output(stdout-1)
+	* Output of a command is shown in terminal
+	* To route output in file using >
+		hostname>file_name (It saves the output is to be displayed on to that file and every time file gets over writed)
+	* To append output in existing file using >>
+		pwd>>file_name (It appends the output)
+    
+	Error(stderr-2)
+	* If any command gives you error then it is considered as stderr-2.
+	* We can redirect the error to a file:
+		Ex: cd/root/2>error_file
+	* To redirect both standard output and error to a file:
+	Ex: cd/root/>error_file 2>&1
 	
+	Input(stdin-0)
+	* input is used when feeding file contents to a file:
+	Ex:	cat<file_name
+		cat<<EOF
+		
+		
+What is File Compression?
+:-	File compression the size of files by encoding their data more efficiently.
+	This is especially useful for backup, storage, and file transfer.
+	
+	To compress a folder:
+	tar :- tape archive 
+	cvf:- c - compress , v - verbose, f - file.
+	
+	tar -cvf archive_name.tar file1.txt file2.txt    #Creating a tar archive
+	gzip archive_name.tar      #Creating zip file archive_name.tar.gz	
+	
+	tar -czvf archive_name.tar.gz file1.txt file2.txt   #Compressing the tar archive with gzip
+	
+	tar -czvf archive_name.tar.gz  #Decompressing a tar.gz archive x - extract
+	
+	zip archive_name.zip file1 file2  #Compressing multiple files
+	unzip archive_name.zip  #Decompressing a zip archive
+	
+	tar -tzvf archive_name.tar.gz #it used to se inside the file
+	
+	zcat file.gz #Used to view zip file
+	
+	
+Linux soft and hard links:
+we are using 'ln' command 'ln means link name'.
 
+What are links?
+:- A connection betrween a file name and actual data on the disk.
+we can call it a shortcut.
+
+Types of links:	
+	* Hard Link
+	* Soft Link
+	
+Soft link:
+	Link will be removed if original file is deleted or removed.
+	
+	ln -s myfile myfile_link_name
+	
+Hard Link:
+	Deleting,renaming or removing the original file will not effect the link.
+	
+	ln myfile myfile_hard_link
+	
+	If we modify the file we can see the changes that are made in the file and if we delete the original file still are able to see the contnet of the 
+	file through the harlink.
+	
+Use cases:
+
+There are multple version of file like config_v1.xml, config_2.xml, config_3.xml 
+
+
+
+
+What is Env Variables?
+:- Allows you to store data in memory that can be easily accessed by any program or script running from the shell.
+	Store information about the shell session and the working environment.
+	VAR_NAME=VALUE
+	
+How to see the existing Env Variables?
+	* printenv
+	* env
+
+How to see a specific env Variable?
+	* printenv HOME
+	* echo $HOME
+	EX: create a .sh file and write the below script.
+		echo Current user is $USER
+	
+Types of environment variables:
+	* Global variables
+	* Local variables
+	
+How to create local user-defined variabls that are visible within your shell process.
+	 MY_VAR=data
+	 echo $MY_VAR
+	 
+	 To delete the variable:
+		unset MY_VAR
+		
+		
+	export MY_VAR=data
+	 env | MY_VAR
+	 
+Set Env Var Using Profile:
+	Set Env variable permanent for a user:
+	* Edit  :-  ~/.profile(ubuntu)
+	* Edit  :-  ~/.bash_profile(centos)
+	
+	And set variables:
+	* export MYVAR=VALUE
+	* source ~/.profile (to apply immediately)
+	
+	EX: vi ~/.profile
+		add line:
+		export NEWVAR=Vijeth
+		save and exit
+		
+		source ~/.profile
+		echo $NEWVAR
+		
+	ls -lt ~/.bashrc
+	vi ~/.bashrc
+		add line:
+			export ~/.bashrc
+	
+Set Env variable permanent for all the users:
+	* Edit /etc/profile/
+	
+	And set variables
+		* export MYVAR=VALUE
+		* source /etc/profile/
+		
+	Use sudo for previlaged access and it requires it.
+	
 
 commands
 	1. pwd :- print working directory(current working directory).
