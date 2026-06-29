@@ -144,20 +144,24 @@ linux file system(It is tree like structure)
 File system.
 	1. Types of file system.
 		a. ext3(extended 3).
-		b. ext4(extended 4). performs well across various file but less efficient for large files. 
-		c. XFS [ubuntu,debian,fedora,centOS,RedHat]. optimized for large file and highly efficient.
+		b. ext4(extended 4):- performs well across various file sizes but less efficient with extremely large files. 
+		c. XFS [ubuntu,debian,fedora,centOS,RedHat] :- optimized for large files and volumes, offering superior performance and scalabilty.
 		d. BtrFS(B-tree FS) [OpenSUSE and SUSE Linux enterprisis server]
 		e. FAT File Allocation Table.
+		
+	For High-throughput and extensive parallel processing capabilities, XFS is typically more effective than ext4.
 		
 	2. how to check the file system?
 	ans: commands
 			1. lsblk -f
 			2. df -Th
 			3. cat/etc/fstab
+			
 	3. inode :- It is a data structure which stores meta data about the about the file or directory.command [ls -l] and [ls -li].
+		The filesystem uses the inode number to locate thre inode, which then contains pointers to the data blocks where the actual file is stored.
 	
 	4. /(root) Directory.
-		The linux file system starts at root directory, denoted by / and directories branched out.
+		The linux file system starts at root directory, denoted by / from which all other files and directories branched out.
 			a. /bin :- Contains essential user binaries (executables), such as common commands like ls,cp,etc..
 			b. /etc :- Holds system configuaration files. Ex User, network, system apps.
 			c. /home :-contains the personal directories of all users.
@@ -203,16 +207,16 @@ File 7 types in linux:
 					Find under/run/
 					Example: /run/chrony/chronyd.sock
 					
-	6. (p)FIFO o Named pipe :- Sends data from one process to another so that the receiving 
+	6. (p)FIFO OR Named pipe :- Sends data from one process to another so that the receiving 
 								process reads the data first-in-first-out manner.
 								Can be created using mkfifo command.
-	7. (d) i] Block device :- A file that refers to a device.
+	7. (d) i] (d) Block device :- A file that refers to a device.
 							Find under /dev/
 							Example: /dev/sda1.
-		   ii] Character device file :- We can create using mknod command.
-										These files are present in /dev folder.
-										File that reads/writes data in character by character.
-										Example: /dev/input/mouse2.wslwsl
+		  ii](c) Character device file :- We can create using mknod command.
+									   These files are present in /dev folder.
+									   File that reads/writes data in character by character.
+									   Example: /dev/input/mouse2.
 										
 File permissions:
 	Each permission set can contain four basic representation.
@@ -234,7 +238,7 @@ File permissions:
 		o means other 
 		a means all
 
-What is ACL(Access Control List?
+What is ACL(Access Control List)?
 It allows you to give more specific set of permissions to a file or directory without changing the base ownership and permission.
 	commands: setfacl(set file acl) & getfacl.
 	
@@ -661,6 +665,173 @@ Set Env variable permanent for all the users:
 		
 	Use sudo for previlaged access and it requires it.
 	
+What is alias?
+:	A custom shortcut that represents.
+		- A longer command or series of commands.
+	Syntax:
+		alias short_name="command"
+		Ex: alias l="ls"
+		
+	To check the existing alias:
+	: alias -p
+	
+Usecase alias:
+	1. Customizing commands 
+	2. Shortening Lengthy Commands
+	3. Navigating Directories
+	4. Persinalizing Commands
+	
+	alias rm ="rm -i"  (i=interactive aks's permission to delete a folder)
+
+To make the alias permanent:
+ step1:- Enter ls -la all the hidden files are available do it in home directory. 
+ step2:- You can see .bashrc file 
+ step3:- vi .bashrc and go down 
+ step4:- There you can see #User specific aliases and functions
+ step5:- Enter your command 
+ step6:- Esc + :wq 
+
+System Monitoring:
+(df,du,free)
+1. df command :-Show about the file system.
+	Ex:	df -f
+		df -hBK
+
+2. du command :- Summerize the disk usage of the set of FILE's, recursively for directories.
+
+	du -h
+	du -h FILE/PATHdu 0hc FILE/PATH for total volume
+	
+	If you wanty to see even size of the file then use a
+	
+	du -ahc FILE?PATH for total volume
+	-BM or BG scale sizes by size
+
+3. free command :- Display amount of the free and used memory in the system.
+
+	free
+	free -h
+	free -s N(keep refreshing memory after Nsec)
+	free -c N(Exit after repeating Ntimes)
+
+ps (process status) :- Used to display all the running process in the linux system.
+
+Syntax:
+ps [OPTIONS]
+ps - Shows the process of current shell.
+
+PID - unique process ID.
+TTY - terminal  =type of user logged in to.
+TIME - amount of CPU in min and sec that process has been running.
+CMD - name of the command that launched the process.
+
+Most widely command:
+To see all the running processes:
+ps -e OR ps -A  :- Both are same use any one.
+
+ps -ef (for full format)
+
+To see all the running process in BSD(Berkeley Software Distribution)
+
+Ideally it gives you more information
+ps aux 
+
+To check the apache server is running or not:
+ps -ef | grep httpd
+
+To see the process by username:
+ps -U <user_name>
+ps -G <group_name>
+
+To see the process tree:
+ps -ejH
+
+kill command :- used to terminate a process manually.
+	Syntax:
+		kill [OPTION][PID]
+		OPTION=signal name OR no.
+		PID=Process ID.
+
+To see all the signal names:
+kill -l
+
+Most widely used kill commands;
+	1> kill PID
+	2> kill -1 PID  :- To restart the process.
+	3> kill -2 PID  :- Interrupt from keyboard like Ctrl+c.
+	4> kill -9 PID  :- Forcefully terminate the process.
+	5> kill -15 PID :- Kill process gracefully.
+
+Systemctl command:
+What is systemctl?
+:-	It is used to control the status of the services. Control Systemd System.
+Ex:- systemctl status <service_name>
+
+	sudo systemctl start/stop <service_name> :- Start or stop a service.
+	sudo systemctl status <service_name>  	 :- To check the status.
+	sudo systemctl restart <service_name>	 :- To restart the service.
+	
+sudo systemctl enable <service_name>
+	* Enabling a servicr causes the system to start the service upon reboot or whenever computer starts up.
+	* The enable subcommand does not start the particular service immediately.
+	* You need admin rights.
+
+	To enable and start at same time.
+	:- sudo systemctl enable --now sshd
+
+	To check if a service is enabled/
+	:- sudo systemctl is-enabled sshd
+	
+sudo systemctl disable <service_name>
+	* Disabling a service.
+	* One can manually start the service.
+	
+	To prevent the service to start:
+	:- sudo systemctl mask <service_name>
+	
+	To check if a service is enabled?
+	:- sudo systemctl unmask <service_name>
+
+Computer control commands 
+	systemctl poweroff
+	
+	systemctl reboot
+	systemctl -i reboot (ignoring logged-in users)
+	
+To list the sockets in memory available for interprocess communication(IPC)
+
+	systemctl list-sockets
+	systemctl --show-types list-sockets
+	
+	systemctl --show-type list-sockets 'systemd*
+	systemctl --show-type list-sockets --all
+	
+Task:
+	* Check the status of the service.
+	:- systemctl status <service_name>
+	* Stop the service and recheck the status.
+	:- systemctl stop <service_name> ; systemctl status <service_name>
+	* Disable the service, reboot the system and confirm if the the service didn't start.
+	:- systemctl disable <service_name> ; systemctl -i reboot ; systemctl status <service_name>
+	* Enable the service, reboot the system and confirm if the service started.
+	:- systemctl enable <service_name> ; systemctl reboot ; systemctl status <service_name> 
+	* Stop the service and mask it and try starting it to check if it is successfull?
+	:- systemctl stop <service_name> ; systemctl mask <service_name> ; systemctl start <service_name>
+
+TOP Command:
+	The top(Table of Processes) command shows a real-time view of running processes in linux and displays kernel-managed tasks.
+	The command also provides a system information summary that shows resource utilization, including CPU and memory usage.
+	Different commands with top command:
+	
+	* top then c :- shows commands absolute path.
+	* top then k :- kill the process by entering PID.
+	* top then n :- To change the no. of task displayed.
+	* top then d,s :- To change the interval if refresh.
+	* top then M :- To sort the Linux running process by memory usage.
+	* top then r :- You can change the nice value of a PID.
+	* top then u :- To filter task by user.
+	* top then f :- Field management.
+	* top then h :- Help
 
 commands
 	1. pwd :- print working directory(current working directory).
